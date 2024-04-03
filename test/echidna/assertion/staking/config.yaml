@@ -1,0 +1,22 @@
+# echidna config: https://github.com/crytic/echidna/wiki/Config
+testMode: assertion
+
+initialize: "test/echidna/assertion/staking/init.json"
+
+quiet: true
+cryticArgs: ['--solc-remaps', '@=src/node_modules/@']
+
+shrinkLimit: 2000
+
+testLimit: 40000000 # 40_000_000
+
+workers: 20
+
+deployer: "0x44000"
+sender: ["0x10000", "0x20000", "0x30000", "0x40000", "0x50000", "0x60000", "0x70000", "0x80000", "0x90000", "0x11000"]
+
+# maxtime delyas for block since creation
+maxTimeDelay: 34560000 # 400 days. max stake definition lockDuration is 365 days
+
+coverage: true
+corpusDir: "test/echidna/assertion/staking/corups"

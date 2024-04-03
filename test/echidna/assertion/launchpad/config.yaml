@@ -1,0 +1,22 @@
+# echidna config: https://github.com/crytic/echidna/wiki/Config
+testMode: assertion
+
+initialize: "test/echidna/assertion/launchpad/init.json"
+
+quiet: true
+cryticArgs: ['--solc-remaps', '@=src/node_modules/@']
+
+shrinkLimit: 2000
+
+testLimit: 10000000 # 10_000_000
+
+workers: 20
+
+deployer: "0x40000"
+sender: ["0x10000", "0x20000", "0x30000"]
+
+# maxtime delyas for block since creation
+maxTimeDelay: 345600 # 4 days
+
+coverage: true
+corpusDir: "test/echidna/assertion/launchpad/corups"
